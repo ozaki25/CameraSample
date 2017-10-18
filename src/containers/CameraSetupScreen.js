@@ -1,15 +1,41 @@
 import React, { Component } from 'react';
-import { TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  panel: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  p: {
+    backgroundColor: 'lightblue',
+  },
+  l: {
+    backgroundColor: 'lightcyan',
+  },
+});
 
 class CameraSetupScreen extends Component {
   static navigationOptions = {
     title: '撮影準備',
   }
 
-  onPress = () =>  this.props.navigation.navigate('CameraScreen');
+  onPress = (orientation) => () => this.props.navigation.navigate('CameraScreen', { orientation: orientation });
 
   render() {
-    return <TouchableOpacity style={{ flex: 1, backgroundColor: 'lightblue' }} onPress={this.onPress} />;
+    return (
+      <View style={styles.container}>
+        <TouchableOpacity style={[styles.panel, styles.p]} onPress={this.onPress('p')}>
+          <Text>portrait</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={[styles.panel, styles.l]} onPress={this.onPress('l')}>
+          <Text>landscapeLeft</Text>
+        </TouchableOpacity>
+      </View>
+    )
   }
 }
 

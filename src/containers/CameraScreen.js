@@ -13,13 +13,16 @@ class CameraScreen extends Component {
   }
 
   render() {
+    const orientation = this.props.navigation.state.params.orientation === 'p' ? Camera.constants.Orientation.portrait : Camera.constants.Orientation.landscapeLeft;
     return (
       <TouchableOpacity style={{ flex: 1 }} onPress={this.onPress}>
         <Camera
-           ref={camera => this.camera = camera}
-           style={{ flex: 1 }}
-           captureTarget={Camera.constants.CaptureTarget.temp}
-           flashMode={Camera.constants.FlashMode.off} />
+          ref={camera => this.camera = camera}
+          style={{ flex: 1 }}
+          captureTarget={Camera.constants.CaptureTarget.temp}
+          flashMode={Camera.constants.FlashMode.off}
+          orientation={orientation}
+          />
       </TouchableOpacity>
     );
   }

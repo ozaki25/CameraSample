@@ -11,7 +11,7 @@ class CameraResultScreen extends Component {
   render() {
     const { height, width } = Dimensions.get('window')
     return (
-      <TouchableOpacity onPress={this.onPress} style={{ flex: 1, backgroundColor: 'lightgreen' }}>
+      <TouchableOpacity onPress={this.onPress} style={{ flex: 1 }}>
         <Image
            resizeMode="contain"
            source={{ uri: this.props.navigation.state.params.path }}

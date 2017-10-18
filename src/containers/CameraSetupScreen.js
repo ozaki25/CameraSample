@@ -23,7 +23,7 @@ class CameraSetupScreen extends Component {
     title: '撮影準備',
   }
 
-  onPress = (orientation) => () => this.props.navigation.navigate('CameraScreen', { orientation: orientation });
+  onPress = (orientation) => () => this.props.navigation.navigate('CameraScreen', { orientation });
 
   render() {
     return (
